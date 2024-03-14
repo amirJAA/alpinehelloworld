@@ -2,7 +2,8 @@
 FROM python:3.13.0a2-alpine
 
 # Install python and pip
-RUN apk add --no-cache --update python3 py3-pip bash
+RUN apk add --no-cache --update python3 py3-pip bash\
+    && rm -rf /var/cache/apk/*
 ADD ./webapp/requirements.txt /tmp/requirements.txt
 
 # Create a virtual environment and activate it
